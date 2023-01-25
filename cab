@@ -1,0 +1,25 @@
+	if (format[i] == '%' && format[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+		}
+		else if (format[i] == '%')
+		{
+			f = get_spec_funcs(&format[i + 1]);
+			f(vars);
+			if (!f(vars))
+			{
+				return (-1);
+			}
+			count = count + f(vars);
+			i = i + 2;
+		}
+		else
+		{
+			_putchar(format[i]);
+			i++;
+		}
+	}
+	va_end(vars);
+	return (i + count);
+

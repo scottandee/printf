@@ -7,7 +7,7 @@
 * Return: NULL if failure and correct funtion specifier if successful
 */
 
-int (*get_spec_funcs(const char *s))(va_list str)
+int (*get_spec_funcs(const char *s))(va_list)
 {
 	spec functions[] = {
 		{"s", print_s},

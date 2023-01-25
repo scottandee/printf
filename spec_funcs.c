@@ -2,20 +2,20 @@
 
 /**
 * print_s - prints string
-* @str: this is the variable that contains the string
+* @s: this is the variable that contains the string
 * Return: the number of the string
 */
 
-int print_s(va_list str)
+int print_s(va_list s)
 {
-	char *s;
+	char *str;
 	int i;
 
-	s = va_arg(str, char *);
+	str = va_arg(s, char *);
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		i++;
 	}
 	return (i);
@@ -23,15 +23,15 @@ int print_s(va_list str)
 
 /**
 * print_c - prints character
-* @str: this is the variable that contains the character
+* @c: this is the variable that contains the character
 * Return: the number of character
 */
 
-int print_c(va_list str)
+int print_c(va_list c)
 {
 	char d;
 
-	d = (char) va_arg(str, int);
+	d = (char)va_arg(c, int);
 	_putchar(d);
 	return (1);
 }

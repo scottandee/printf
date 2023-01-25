@@ -21,30 +21,34 @@ int _printf(const char *format, ...)
 	}
 	i = 0;
 	count = 0;
-	while (format[i] != '\0')
+	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == '%')
-		{
-			_putchar('%');
-			i++;
-		}
-		else if (format[i] == '%')
-		{
-			f = get_spec_funcs(&format[i + 1]);
-			f(vars);
-			if (!f(vars))
-			{
-				return (-1);
-			}
-			count = count + f(vars);
-			i = i + 2;
-		}
-		else
+		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
-			i++;
+			count++;
 		}
+		if (!format[i])
+			return (count);
+		f = get_spec_funcs(&format[i + 1]);
+
+		if (f != NULL)
+		{
+			count += f(vars);
+			i = i + 2;
+			continue;
+		}
+		if (!format[i + 1])
+		{
+			return (-1);
+		}
+		_putchar(format[i]);
+		count++;
+		if (format[i + 1] == '%')
+			i += 2;
+		else
+			i++;
 	}
 	va_end(vars);
-	return (i + count);
+	return (count);
 }
