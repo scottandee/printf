@@ -1,5 +1,5 @@
-#ifndef PRINTF_H
-#define PRINTF_H
+#ifndef MAIN_H
+#define MAIN_H
 #include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
@@ -25,4 +25,4 @@ int print_c(va_list c);
 int (*get_spec_funcs(const char *s))(va_list);
 
 
-#endif  /*PRINTF_H*/
+#endif  /*MAIN_H*/
