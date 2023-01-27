@@ -18,7 +18,7 @@ int (*get_spec_funcs(const char *s))(va_list)
 
 	while (functions[i].str != NULL)
 	{
-		if (strcmp(functions[i].str, s) == 0)
+		if (*(functions[i].str) == *s)
 		{
 			return (functions[i].func);
 		}

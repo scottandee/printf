@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list vars;
 	int (*f)(va_list);
-	int i, count;
+	int i = 0, count = 0;
 
 	va_start(vars, format);
 
@@ -19,9 +19,24 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	i = 0;
-	count = 0;
-	while (format[i])
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			f = get_spec_funcs(&format[i + 1]);
+			if (f != NULL)
+			{
+				count += f(vars);
+				i += 2;
+				continue;
+			}
+		}
+		_putchar(format[i]);
+		i++;
+		count++;
+	}
+	return (count);
+	/*while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
 		{
@@ -39,9 +54,7 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		if (!format[i + 1])
-		{
 			return (-1);
-		}
 		_putchar(format[i]);
 		count++;
 		if (format[i + 1] == '%')
@@ -49,6 +62,6 @@ int _printf(const char *format, ...)
 		else
 			i++;
 	}
-	va_end(vars);
 	return (count);
+	*/
 }
