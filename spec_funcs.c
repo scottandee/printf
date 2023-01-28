@@ -52,7 +52,7 @@ int print_r(va_list r)
 	s = va_arg(r, char *);
 	if(s == NULL)
 	{
-		s = "(nil)";
+		s = "(null)";
 	}
 	while (s[length] != '\0')
 	{
