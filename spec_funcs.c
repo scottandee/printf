@@ -58,6 +58,12 @@ int print_r(va_list r)
 	{
 		length++;
 	}
+	if (length == 0)
+	{
+		_putchar('%');
+		_putchar('r');
+		return (0);
+	}
 	for (i = length; i >= 0; i--)
 	{
 		_putchar(s[i]);
