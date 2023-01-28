@@ -37,3 +37,30 @@ int print_c(va_list c)
 	_putchar(d);
 	return (1);
 }
+
+/**
+* print_r - prints reverse string
+* @r: this is the variable that contains the string
+* Return: the number of characters
+*/
+
+int print_r(va_list r)
+{
+	char *s;
+	int i, length = 0;
+	
+	s = va_arg(r, char *);
+	if(s == NULL)
+	{
+		s = "(nil)";
+	}
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+	for (i = length; i >= 0; i--)
+	{
+		_putchar(s[i]);
+	}
+	return (length);
+}

@@ -21,6 +21,7 @@ typedef struct specifier
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_s(va_list s);
+int print_r(va_list r);
 int print_c(va_list c);
 int (*get_spec_funcs(const char *s))(va_list);
 
