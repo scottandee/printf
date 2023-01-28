@@ -13,6 +13,7 @@ int (*get_spec_funcs(const char *s))(va_list)
 		{"s", print_s},
 		{"c", print_c},
 		{"r", print_r},
+		{"R", print_R},
 		{NULL, NULL}
 	};
 	int i = 0;

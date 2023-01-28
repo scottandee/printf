@@ -48,9 +48,9 @@ int print_r(va_list r)
 {
 	char *s;
 	int i, length = 0;
-	
+
 	s = va_arg(r, char *);
-	if(s == NULL)
+	if (s == NULL)
 	{
 		s = "(null)";
 	}
@@ -69,4 +69,44 @@ int print_r(va_list r)
 		_putchar(s[i]);
 	}
 	return (length);
+
+}
+
+/**
+ * print_R - prints a string in ROT13
+ * @R: string to print
+ * Return: numbers of characters printed
+ */
+
+int print_R(va_list R)
+{
+	char *s;
+	unsigned int i, j;
+	int count = 0;
+	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	s = va_arg(R, char *);
+	if (s == NULL)
+	{
+		s = "(ahyy)";
+	}
+	for (i = 0; s[i]; i++)
+	{
+		for (j = 0; in[j]; j++)
+		{
+			if (in[j] == s[i])
+			{
+				_putchar(out[j]);
+				count++;
+				break;
+			}
+		}
+		if (!in[j])
+		{
+			_putchar(s[i]);
+			count++;
+		}
+	}
+	return (count);
 }
