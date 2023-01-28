@@ -38,11 +38,6 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}*/
-			else
-			{
-				i++;
-				continue;
-			}
 		}
 		_putchar(format[i]);
 		i++;
