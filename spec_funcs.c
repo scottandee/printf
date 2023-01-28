@@ -47,7 +47,7 @@ int print_c(va_list c)
 int print_r(va_list r)
 {
 	char *s;
-	int i, length = 0;
+	int i, length = 0, count = 0;
 
 	s = va_arg(r, char *);
 	if (s == NULL)
@@ -67,8 +67,9 @@ int print_r(va_list r)
 	for (i = length; i >= 0; i--)
 	{
 		_putchar(s[i]);
+		count++;
 	}
-	return (length);
+	return (count);
 
 }
 
