@@ -68,7 +68,7 @@ int print_r(va_list r)
 	{
 		_putchar(s[i]);
 	}
-	return (length);
+	return (length - 1);
 
 }
 
