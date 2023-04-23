@@ -28,8 +28,10 @@ int print_r(va_list r);
 int print_c(va_list c);
 int print_R(va_list R);
 int print_d(va_list d);
+int print_b(va_list b);
 int (*get_spec_funcs(const char *s))(va_list);
 void print_int(int num, int *count);
+void print_binary(unsigned int num, int *count);
 
 
 #endif  /*_MAIN_H*/
